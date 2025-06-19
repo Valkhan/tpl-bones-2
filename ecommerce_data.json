@@ -1,0 +1,120 @@
+{
+  "marca": {
+    "nome": "T ONZE",
+    "conceito": "Liberdade, aventura e conexão com o mundo",
+    "inspiracao": "Túnel 11 na Ruta Nacional 7 entre Mendoza (Argentina) e Los Andes (Chile)",
+    "produtos_principais": [
+      "Bonés",
+      "Camisetas"
+    ],
+    "objetivo": "Venda direta online"
+  },
+  "tendencias_ecommerce_2025": {
+    "personalizacao": "IA para experiências customizadas",
+    "realidade_aumentada": "Provadores virtuais",
+    "sustentabilidade": "Transparência na cadeia produtiva",
+    "mobile_first": "Priorização mobile",
+    "social_commerce": "Vendas diretas nas redes sociais",
+    "live_shopping": "Transmissões ao vivo para vendas"
+  },
+  "elementos_essenciais_site": {
+    "header": [
+      "Logo da marca (esquerda preferível)",
+      "Busca do site com filtros",
+      "Área de login/cadastro",
+      "Meus pedidos",
+      "Carrinho com contador",
+      "Contatos (telefone, email, chat)",
+      "Ícones redes sociais",
+      "Menu por categorias"
+    ],
+    "home_page": [
+      "Banner principal com identidade da marca",
+      "Produtos em destaque",
+      "Condições especiais (frete grátis, parcelamento)",
+      "Captação de email com desconto",
+      "Prova social (avaliações, depoimentos)",
+      "Sobre a marca/história"
+    ],
+    "pagina_produto": [
+      "Fotos de alta qualidade (múltiplos ângulos)",
+      "Descrição completa do produto",
+      "Tabela de tamanhos",
+      "Avaliações de clientes",
+      "Produtos relacionados",
+      "Botão CTA claro para compra"
+    ]
+  },
+  "otimizacao_checkout": {
+    "principios": [
+      "Processo simplificado (máximo 3 etapas)",
+      "Opção de compra como visitante",
+      "Múltiplas formas de pagamento",
+      "Transparência total nos custos",
+      "Informações de segurança visíveis",
+      "Otimização para mobile"
+    ],
+    "impacto": "Aumento de até 35% na taxa de conversão"
+  },
+  "plataformas_recomendadas": [
+    {
+      "nome": "Nuvemshop",
+      "vantagens": [
+        "Líder na América Latina",
+        "Integração fácil redes sociais",
+        "Sem limite de produtos"
+      ]
+    },
+    {
+      "nome": "WooCommerce",
+      "vantagens": [
+        "Flexibilidade total",
+        "Gratuito",
+        "Escalável"
+      ]
+    },
+    {
+      "nome": "Shopify",
+      "vantagens": [
+        "Interface intuitiva",
+        "Muitos temas",
+        "Suporte excelente"
+      ]
+    }
+  ],
+  "seo_ecommerce": {
+    "tecnico": [
+      "URLs amigáveis",
+      "Certificado SSL (HTTPS)",
+      "Site responsivo",
+      "Velocidade de carregamento otimizada",
+      "Estrutura de dados",
+      "Breadcrumbs"
+    ],
+    "conteudo": [
+      "Títulos otimizados (H1, H2, H3)",
+      "Metadescrições únicas",
+      "Descrições de produtos detalhadas",
+      "Alt text em imagens",
+      "Blog com conteúdo relevante"
+    ]
+  },
+  "seguranca": [
+    "Certificado SSL",
+    "Autenticação de dois fatores",
+    "Gateway de pagamento seguro",
+    "Backup regular dos dados",
+    "Atualizações constantes da plataforma",
+    "Monitoramento de fraudes"
+  ],
+  "fotografia_produtos": {
+    "especificacoes": [
+      "Fundo branco neutro",
+      "Múltiplos ângulos (frente, costas, laterais)",
+      "Detalhes em close-up",
+      "Modelos usando os produtos (lifestyle)",
+      "Iluminação profissional",
+      "Alta resolução (mínimo 1000x1000px)"
+    ]
+  }
+}

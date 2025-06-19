@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T ONZE - Liberdade em Cada Peça</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1749853943/gpt4o_images/g6aavnkwwsirtd7tnmnk.png" alt="T ONZE" class="logo">
+                </div>
+                
+                <nav class="header__nav">
+                    <a href="#" class="nav-link" data-page="home">Início</a>
+                    <a href="#" class="nav-link" data-page="products" data-category="bones">Bonés</a>
+                    <a href="#" class="nav-link" data-page="products" data-category="camisetas">Camisetas</a>
+                    <a href="#" class="nav-link" data-page="about">Quem Somos</a>
+                    <a href="#" class="nav-link" data-page="contact">Contato</a>
+                </nav>
+                
+                <div class="header__search">
+                    <input type="text" placeholder="Buscar produtos..." class="search-input" id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="header__actions">
+                    <button class="action-btn" id="loginBtn">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </button>
+                    <button class="action-btn" id="favoritesBtn">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorites-count">0</span>
+                    </button>
+                    <button class="action-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Homepage -->
+        <div class="page" id="home-page">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero__content">
+                    <h1 class="hero__title">Viva o Sonho, Seja T ONZE</h1>
+                    <p class="hero__subtitle">Liberdade, aventura e autenticidade em cada peça</p>
+                    <button class="btn btn--primary btn--lg" data-page="products">Explore Nossa Coleção</button>
+                </div>
+                <div class="hero__image">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1749853903/gpt4o_images/cvttdovfjcgnqlta9lkq.png" alt="T ONZE Collection">
+                </div>
+            </section>
+
+            <!-- About Preview -->
+            <section class="about-preview">
+                <div class="container">
+                    <div class="about-preview__content">
+                        <h2>Nossa História</h2>
+                        <p>A T ONZE nasceu de um sonho durante uma viagem inesquecível pelo Túnel 11, na icônica Ruta Nacional 7 entre Mendoza e Los Andes. Carregamos o espírito de liberdade e aventura em cada peça.</p>
+                        <button class="btn btn--outline" data-page="about">Conheça Nossa História</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="featured-products">
+                <div class="container">
+                    <h2>Produtos em Destaque</h2>
+                    <div class="products-grid" id="featuredProductsGrid">
+                        <!-- Products will be dynamically loaded -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Benefits -->
+            <section class="benefits">
+                <div class="container">
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <i class="fas fa-truck benefit__icon"></i>
+                            <h3>Frete Grátis</h3>
+                            <p>Acima de R$ 150</p>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-exchange-alt benefit__icon"></i>
+                            <h3>Troca Fácil</h3>
+                            <p>Até 30 dias</p>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-shield-alt benefit__icon"></i>
+                            <h3>Pagamento Seguro</h3>
+                            <p>PIX, cartão e boleto</p>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-clock benefit__icon"></i>
+                            <h3>Entrega Rápida</h3>
+                            <p>Para todo Brasil</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter -->
+            <section class="newsletter">
+                <div class="container">
+                    <div class="newsletter__content">
+                        <h2>Fique por dentro das novidades</h2>
+                        <p>Receba ofertas exclusivas e lançamentos em primeira mão</p>
+                        <form class="newsletter__form" id="newsletterForm">
+                            <input type="email" placeholder="Seu e-mail" class="form-control" required>
+                            <button type="submit" class="btn btn--primary">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Products Page -->
+        <div class="page hidden" id="products-page">
+            <div class="container">
+                <div class="products-header">
+                    <h1 id="productsTitle">Nossos Produtos</h1>
+                    <div class="products-filters">
+                        <select id="categoryFilter" class="form-control">
+                            <option value="">Todas as categorias</option>
+                            <option value="bones">Bonés</option>
+                            <option value="camisetas">Camisetas</option>
+                        </select>
+                        <select id="sortFilter" class="form-control">
+                            <option value="name">Ordenar por nome</option>
+                            <option value="price-low">Menor preço</option>
+                            <option value="price-high">Maior preço</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Detail Page -->
+        <div class="page hidden" id="product-page">
+            <div class="container">
+                <div class="product-detail" id="productDetail">
+                    <!-- Product details will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div class="page hidden" id="about-page">
+            <div class="container">
+                <div class="about-content">
+                    <h1>Quem Somos</h1>
+                    <div class="about-story">
+                        <h2>Nossa História</h2>
+                        <p>A T ONZE nasceu de um sonho: criar algo que refletisse identidade, propósito e uma conexão genuína com o espírito de liberdade. Esse sonho começou com um dos fundadores, um apaixonado pelas estradas, pela natureza e pela ideia de transformar experiências em uma marca que inspira.</p>
+                        
+                        <p>A inspiração para o nome T ONZE surgiu durante uma viagem inesquecível de caminhão entre Mendoza, na Argentina, e Los Andes, no Chile. Esse trecho, conhecido por sua beleza deslumbrante, é um cenário que combina o majestoso Rio Mendoza, montanhas cobertas de neve no inverno e curvas que levam a paisagens de tirar o fôlego.</p>
+                        
+                        <h3>O significado por trás do nome</h3>
+                        <p>O nome da marca faz referência ao "Túnel 11", localizado na icônica Ruta Nacional 7, um ponto de passagem que se destaca não apenas pela engenharia que o molda, mas também pela experiência que proporciona. Com sua curva sobre uma rocha imponente e sua vista de cartão-postal, o Túnel 11 simboliza a união entre esforço humano e a grandiosidade da natureza.</p>
+                        
+                        <h3>Nosso propósito</h3>
+                        <p>A T ONZE carrega esse espírito de liberdade, aventura e conexão com o mundo. É mais do que uma marca; é um convite para viver experiências únicas, explorar o desconhecido e enxergar a vida com a mesma amplitude das paisagens que inspiraram sua criação.</p>
+                        
+                        <h3>Nossa missão</h3>
+                        <p>Queremos que você sinta essa liberdade em cada peça que criamos, que carregue consigo o mesmo sonho que nos move: a vontade de transformar o ordinário em algo extraordinário, de percorrer caminhos com autenticidade e estilo.</p>
+                        
+                        <p><strong>Entre no clima, faça parte dessa história e viva o sonho. Seja bem-vindo ao nosso mundo: nós somos a T ONZE!</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div class="page hidden" id="contact-page">
+            <div class="container">
+                <div class="contact-content">
+                    <h1>Contato</h1>
+                    <div class="contact-grid">
+                        <div class="contact-form">
+                            <h2>Envie sua mensagem</h2>
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label class="form-label">Nome</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">E-mail</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Assunto</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Mensagem</label>
+                                    <textarea class="form-control" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Enviar Mensagem</button>
+                            </form>
+                        </div>
+                        <div class="contact-info">
+                            <h2>Nossas Informações</h2>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3>Endereço</h3>
+                                    <p>Rua da Aventura, 111<br>São Paulo/SP</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h3>Telefone</h3>
+                                    <p>(11) 9999-9999</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3>E-mail</h3>
+                                    <p>contato@tonze.com.br</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h3>WhatsApp</h3>
+                                    <a href="https://wa.me/5511999999999" target="_blank" class="btn btn--primary">Falar no WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Page -->
+        <div class="page hidden" id="cart-page">
+            <div class="container">
+                <div class="cart-content">
+                    <h1>Carrinho de Compras</h1>
+                    <div class="cart-grid">
+                        <div class="cart-items" id="cartItems">
+                            <!-- Cart items will be dynamically loaded -->
+                        </div>
+                        <div class="cart-summary">
+                            <h2>Resumo do Pedido</h2>
+                            <div class="summary-item">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">R$ 0,00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Frete:</span>
+                                <span id="shipping">Calcular</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Total:</span>
+                                <span id="total">R$ 0,00</span>
+                            </div>
+                            <div class="shipping-calculator">
+                                <input type="text" placeholder="CEP" class="form-control" id="cepInput">
+                                <button class="btn btn--secondary" id="calculateShipping">Calcular Frete</button>
+                            </div>
+                            <button class="btn btn--primary btn--full-width" id="checkoutBtn">Finalizar Compra</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div class="page hidden" id="checkout-page">
+            <div class="container">
+                <div class="checkout-content">
+                    <h1>Finalizar Compra</h1>
+                    <div class="checkout-grid">
+                        <div class="checkout-form">
+                            <form id="checkoutForm">
+                                <h2>Dados Pessoais</h2>
+                                <div class="form-group">
+                                    <label class="form-label">Nome Completo</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">E-mail</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Telefone</label>
+                                    <input type="tel" class="form-control" required>
+                                </div>
+                                
+                                <h2>Endereço de Entrega</h2>
+                                <div class="form-group">
+                                    <label class="form-label">CEP</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Endereço</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Número</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                
+                                <h2>Forma de Pagamento</h2>
+                                <div class="payment-options">
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment" value="pix" checked>
+                                        <i class="fas fa-qrcode"></i>
+                                        <span>PIX</span>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment" value="card">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Cartão de Crédito</span>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment" value="boleto">
+                                        <i class="fas fa-barcode"></i>
+                                        <span>Boleto</span>
+                                    </label>
+                                </div>
+                                
+                                <button type="submit" class="btn btn--primary btn--full-width">Confirmar Pedido</button>
+                            </form>
+                        </div>
+                        <div class="order-summary">
+                            <h2>Resumo do Pedido</h2>
+                            <div id="checkoutOrderSummary">
+                                <!-- Order summary will be dynamically loaded -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>T ONZE</h3>
+                    <p>Liberdade, aventura e autenticidade em cada peça. Inspirados pelo Túnel 11 e pelo espírito de liberdade.</p>
+                </div>
+                <div class="footer__section">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#" data-page="about">Quem Somos</a></li>
+                        <li><a href="#" data-page="contact">Contato</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3>Atendimento</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@tonze.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo/SP</li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/5511999999999" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 T ONZE. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- <div class="modal hidden" id="loginModal">
+        <div class="modal__overlay">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <h2>Login</h2>
+                    <button class="modal__close">&times;</button>
+                </div>
+                <div class="modal__body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label class="form-label">E-mail</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Senha</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Entrar</button>
+                    </form>
+                    <p class="text-center mt-16">
+                        <a href="#">Esqueci minha senha</a> | 
+                        <a href="#">Criar conta</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <script src="app.js"></script>
+</body>
+</html>
